@@ -5,15 +5,9 @@ display.value = "";
 
 function updateDisplay(value) {
   if (display.value.length < 15) {
-    if (isOperator(value)){
-        if (isOperator(display.value.slice(-1))){
-            return;
-        }
-    }
     display.value += value;
   }
 }
-
 
 function clearDisplay() {
   display.value = "";
@@ -37,9 +31,6 @@ function calculate() {
     }
 }
 
-function isOperator(char) {
-    return char === '+' || char === '-' || char === '*' || char === '/';
-}
 
 function sayHello() {
   const languages = [
