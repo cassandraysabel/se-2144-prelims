@@ -4,10 +4,16 @@ display.disabled = true;
 display.value = "";
 
 function updateDisplay(value) {
-    if (display.value.length < 15) {
-    display.value += value;
+  if (display.value.length < 15) {
+    if (isOperator(value)){
+        if (isOperator(display.value.slice(-1))){
+            return;
+        }
     }
+    display.value += value;
+  }
 }
+
 
 function clearDisplay() {
   display.value = "";
@@ -28,13 +34,11 @@ function calculate() {
     } catch (error) {
       display.value = "Math Error";
     }
-  }
-  try {
-    const result = eval(display.value);
-    display.value = result;
-  } catch (error) {
-    display.value = "Math Error";
-  }
+    }
+}
+
+function isOperator(char) {
+    return char === '+' || char === '-' || char === '*' || char === '/';
 }
 
 function sayHello() {
@@ -58,11 +62,27 @@ function sayHello() {
   }, 2000);
 }
 
+let byeTimerActive = false;
+
 function sayGoodbye() {
   display.value = "Goodbye";
+  byeTimerActive = true;
   setTimeout(() => {
     turnOffCalculator();
+    byeTimerActive = false;
   }, 2000);
+}
+
+function disableButtons() {
+    document.querySelectorAll(".btns button"). forEach((button) => {
+        button.disabled = true;
+    })
+}
+
+function enableButtons() {
+    document.querySelectorAll(".btns button").forEach((button) => {
+        button.disabled = false;
+    })
 }
 
 function turnOnCalculator() {
@@ -76,6 +96,8 @@ function turnOffCalculator() {
 
 document.querySelectorAll(".btns button").forEach((button) => {
   button.addEventListener("click", () => {
+    if (byeTimerActive) return;
+
     const value = button.getAttribute("data-value");
     switch (value) {
       case "AC":
