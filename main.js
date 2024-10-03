@@ -61,7 +61,7 @@ function sayHello() {
     }, 2000);
 }
 
-//so that you cannot press numbers when the bye button is active 
+//so that numbers dont show up with the text when the bye button is active 
 let byeTimerActive = false;
 
 function sayGoodbye() {
