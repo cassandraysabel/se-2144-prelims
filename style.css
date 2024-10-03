@@ -1,0 +1,90 @@
+body {
+    background-color: rgb(255, 248, 238);
+}
+
+.container {
+    width: 1000px;
+    height: 550px;
+    margin: 100px auto;
+}
+
+.calculator {
+    width: 320px;
+    height: 520px;
+    background-color: #3a3a3a;
+    margin: 0 auto;
+    top: 20px;
+    position: relative;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 00.19);
+}
+
+.result {
+    height: 100px;
+    width: 300px;
+    margin-top: 15px;
+    margin-left: 5px;
+    background-color: #3a3a3a;
+    text-align: right;
+    color: aliceblue;
+    font-size: 35px;
+    font-family: "Digital-7 Mono", monospace;
+}
+
+.btns {
+    height: 400px;
+}
+
+.operator,
+.number,
+.on-btn,
+.off-btn,
+.equal-sgn,
+.all-clear,
+.decimal,
+.backspace {
+    width: 50px;
+    height: 50px;
+    margin: 15px;
+    float: left;
+    border-radius: 50%;
+    border-width: 0;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.operator:hover,
+.number:hover,
+.on-btn:hover,
+.off-btn:hover,
+.equal-sgn:hover,
+.all-clear:hover,
+.decimal:hover,
+.backspace:hover {
+    opacity: 1;
+}
+.number {
+    background-color: rgb(251, 172, 45);
+}
+
+.operator {
+    background-color: rgb(142, 142, 232);
+}
+
+.operator:active,
+.number:active,
+.on-btn:active,
+.off-btn:active,
+.equal-sgn:active {
+    font-size: 13px;
+}
+
+.operator:focus,
+.number:focus,
+.on-btn:focus,
+.off-btn:focus,
+.equal-sgn:focus {
+    outline: 0;
+}
